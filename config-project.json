@@ -1,0 +1,13 @@
+{
+  "variableSets" : {
+    "default" : { }
+  },
+  "variableXpaths" : { },
+  "uidInXincludeCompntListFileName" : false,
+  "xincludeXpaths" : { },
+  "additionalFiles" : {
+    "bootstrap.properties" : "bootstrap.properties"
+  },
+  "optionalComponentsInUse" : [ "com.adaptris:interlok-vcs-git:5.0-SNAPSHOT" ],
+  "structured" : true
+}

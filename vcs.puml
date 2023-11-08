@@ -1,0 +1,16 @@
+```plantuml
+@startuml
+skinparam componentStyle rectangle
+
+package "Github.com" as github {
+  [interlok-config-example]
+}
+
+package "Interlok" as Interlok {
+  [bootstrap.properties]
+  [configuration]
+}
+
+[interlok-config-example] --> [configuration]
+@enduml
+```

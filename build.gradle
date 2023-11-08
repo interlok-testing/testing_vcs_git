@@ -1,0 +1,25 @@
+ext {
+  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v5/build.gradle"
+  interlokVersion = '5.0-SNAPSHOT'
+  buildEnv = 'dev'
+  jschVersion = '0.1.62'
+  jrubyVersion = '9.2.16.0'
+}
+
+allprojects {
+  apply from: "${interlokParentGradle}"
+}
+
+dependencies {
+  interlokRuntime ("com.adaptris:interlok-apache-http:$interlokVersion")
+  interlokRuntime ("com.adaptris:interlok-json:$interlokVersion")
+  interlokRuntime ("com.adaptris:interlok-vcs-git:$interlokVersion") {
+    exclude group: "org.jcraft", module: "jsch"
+  }
+  interlokRuntime ("com.github.mwiede:jsch:$jschVersion")
+  
+  interlokRuntime ("org.jruby:jruby:$jrubyVersion")
+  
+  interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
+
+}
