@@ -28,5 +28,4 @@ dependencies {
   interlokRuntime ("org.jruby:jruby:$jrubyVersion")
   
   interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
-
 }
