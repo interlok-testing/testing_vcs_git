@@ -1,18 +1,18 @@
 plugins {
   // https://github.com/nemerosa/versioning
-  id 'net.nemerosa.versioning' version '2.14.0'
+  id 'net.nemerosa.versioning' version '3.1.0'
 }
 
 ext {
-  interlokParentGradle = "https://raw.githubusercontent.com/adaptris/interlok-build-parent/main/v5/build.gradle"
-  interlokVersion = '5.0-SNAPSHOT'
-  buildEnv = 'dev'
+  //testingCommonGradle = "https://raw.githubusercontent.com/interlok-testing/testing_common/refs/heads/master/common.gradle"
+  testingCommonGradle = "../testing_common/common.gradle"
+  interlokTestingVersion = "0.1"
   jschVersion = '0.1.62'
   jrubyVersion = '9.2.16.0'
 }
 
 allprojects {
-  apply from: "${interlokParentGradle}"
+  apply from: "${testingCommonGradle}"
   // specify the version of the configuration.
   version=versioning.info.full
 }
@@ -24,8 +24,9 @@ dependencies {
     exclude group: "org.jcraft", module: "jsch"
   }
   interlokRuntime ("com.github.mwiede:jsch:$jschVersion")
-  
+  interlokRuntime ("com.adaptris:interlok-scripting:$interlokVersion")
   interlokRuntime ("org.jruby:jruby:$jrubyVersion")
   
   interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
+  testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
 }
