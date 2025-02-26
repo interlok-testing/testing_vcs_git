@@ -24,7 +24,6 @@ dependencies {
     exclude group: "org.jcraft", module: "jsch"
   }
   interlokRuntime ("com.github.mwiede:jsch:$jschVersion")
-  interlokRuntime ("com.adaptris:interlok-scripting:$interlokVersion")
   interlokRuntime ("org.jruby:jruby:$jrubyVersion")
   
   interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
